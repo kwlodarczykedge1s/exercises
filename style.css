@@ -1,0 +1,10 @@
+li {
+    border: 1px solid #ccc;
+    margin-bottom:3px;
+    padding: 2px 5px;
+}
+
+button {
+    margin-left: 10px;
+    margin-right: 20px;
+}

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kwlodarczykedge1s/exercises#readme",
   "dependencies": {
+    "babel": "^6.5.2",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1"
   }

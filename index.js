@@ -1,30 +1,32 @@
-/**
- * Created by kacper on 20.01.17.
- */
-
 $(() => {
-    let toDoList = [];
+    let state = {
+        TODO: 'to do',
+        DONE: 'done'
+    };
 
-    $(".button").on("click", () => {
-        const inputValue = $(".input").val();
-        let li = `<li>${inputValue}</li>`;
+    let stateObject = null;
 
-        if(!inputValue) {
-            console.log('error');
-            return;
+    if (!stateObject || stateObject === null) {
+        window.sessionStorage.setItem(state, JSON.stringify(state));
+    }
+
+    stateObject = JSON.parse(window.sessionStorage.getItem(state));
+    console.log(stateObject);
+
+    $('.addItem').on('click', () => {
+        let inputValue = $('#inputName').val();
+        let button = '<button>Usuń</button>';
+        let status = `status: ${stateObject.TODO}`;
+        let task = inputValue + button + status;
+
+        if (inputValue.length) {
+            $('<li />', {html: task}).appendTo('ul.toDoList')
         }
-
-        toDoList.push(li);
-        console.log(toDoList);
-
-        $("ul").append(li);
     });
 
-    $(".clear").on("click", () => {
-        $("ul").empty();
-    })
-
-
+    $('ul').on('click', 'button', (e) => {
+        $(this).parent().remove()
+    });
 
 
 });
